@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dgJ-9j-G6k">
+                                <rect key="frame" x="166" y="318.5" width="43" height="30"/>
+                                <color key="backgroundColor" red="0.1960784314" green="0.1960784314" blue="0.1960784314" alpha="0.46000000000000002" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Peson"/>
+                                <connections>
+                                    <action selector="getPersons:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kb4-38-ix5"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="19V-uZ-hLk">
+                                <rect key="frame" x="166" y="370" width="43" height="30"/>
+                                <color key="backgroundColor" red="0.1960784314" green="0.1960784314" blue="0.1960784314" alpha="0.46000000000000002" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="添加"/>
+                                <connections>
+                                    <action selector="addOjbect:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yzP-3v-Jaw"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qYm-rB-ap9">
+                                <rect key="frame" x="166" y="420" width="43" height="30"/>
+                                <color key="backgroundColor" red="0.1960784314" green="0.70588235290000001" blue="0.3921568627" alpha="0.9851177377" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="更新"/>
+                                <connections>
+                                    <action selector="updateObject:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7o6-Va-Mvo"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="19V-uZ-hLk" firstAttribute="trailing" secondItem="dgJ-9j-G6k" secondAttribute="trailing" id="LCj-bF-IPU"/>
+                            <constraint firstItem="dgJ-9j-G6k" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Lvv-cD-Jyy"/>
+                            <constraint firstItem="19V-uZ-hLk" firstAttribute="leading" secondItem="dgJ-9j-G6k" secondAttribute="leading" id="Wr4-zq-LFz"/>
+                            <constraint firstItem="qYm-rB-ap9" firstAttribute="leading" secondItem="19V-uZ-hLk" secondAttribute="leading" id="hzr-jl-XHE"/>
+                            <constraint firstItem="qYm-rB-ap9" firstAttribute="top" secondItem="19V-uZ-hLk" secondAttribute="bottom" constant="20" id="iIp-ab-GuV"/>
+                            <constraint firstItem="qYm-rB-ap9" firstAttribute="trailing" secondItem="19V-uZ-hLk" secondAttribute="trailing" id="p36-Xa-ymw"/>
+                            <constraint firstItem="19V-uZ-hLk" firstAttribute="top" secondItem="dgJ-9j-G6k" secondAttribute="bottom" constant="21.5" id="vLZ-zT-Rbv"/>
+                            <constraint firstItem="dgJ-9j-G6k" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="xhz-94-uqI"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-268" y="43"/>
+        </scene>
+    </scenes>
+</document>
