@@ -192,19 +192,16 @@ static RLMRealm *customRealm=nil;
     RLMRealm* realm=nil;
     if (realmName) {
         realm=[self getCustomRealmWithName:realmName];
-        [realm beginWriteTransaction];
-        block();
-        [realm addOrUpdateObject:ojbect];
-        [realm commitWriteTransaction];
     }
     else {
         realm= [self getDefaultRealm];
+    }
+    if (realm) {
         [realm beginWriteTransaction];
         block();
         [realm addObject:ojbect];
         [realm commitWriteTransaction];
     }
-    
 }
 
 /**
@@ -216,11 +213,11 @@ static RLMRealm *customRealm=nil;
     RLMRealm* realm=nil;
     if (realmName) {
         realm=[self getCustomRealmWithName:realmName];
-        [realm addOrUpdateObjectsFromArray:objects];
-        [realm commitWriteTransaction];
     }
     else {
         realm=[self getDefaultRealm];
+    }
+    if (realm) {
         [realm addOrUpdateObjectsFromArray:objects];
         [realm commitWriteTransaction];
     }
@@ -228,7 +225,7 @@ static RLMRealm *customRealm=nil;
 }
 
 /**
- 更行或者添加数据
+ 添加数据(不含更新)
  @param object 增加或者更新的对象
  @param realmName 数据库名字（默认数据库则传nil）
  */
@@ -250,4 +247,94 @@ static RLMRealm *customRealm=nil;
     }
 }
 
+
+/**
+ 删除单个对象
+ @param object 删除对象
+ @param realmName realm数据库名称（默认则传nil）
+ */
++(void)deleteObject:(RLMObject *)object realmName:(NSString *)realmName {
+    RLMRealm* realm=nil;
+    if (realmName) {
+        realm=[self getCustomRealmWithName:realmName];
+    }
+    else {
+        realm=[self getDefaultRealm];
+    }
+    if (realm) {
+        [realm transactionWithBlock:^{
+            [realm deleteObject:object];
+            [realm commitWriteTransaction];
+        }];
+    }
+}
+
+
+/**
+ 删除一组realm数据
+ @param objects realm对象的数组
+ @param realmName realm数据库的名称(默认数据库则传nil)
+ */
++(void)deleteObjects:(id)objects realmName:(NSString *)realmName {
+    RLMRealm* realm=nil;
+    if (realmName) {
+        realm=[self getCustomRealmWithName:realmName];
+    }
+    else {
+        realm=[self getDefaultRealm];
+    }
+    if (realm) {
+        [realm transactionWithBlock:^{
+            [realm deleteObjects:objects];
+            [realm commitWriteTransaction];
+        }];
+    }
+}
+
+
+/**
+ 通过谓词删除指定数据
+ @param predicate 谓词
+ @param realmName 数据库名称(默认数据库则传nil)
+ */
++(void)deleteObjectsWithPredicate:(NSPredicate *)predicate realmName:(NSString *)realmName {
+    RLMResults *objects = [self getObjectWithPredicate:predicate realm:realmName sortedDescriptors:nil];
+    if (objects&&objects.count>0) {
+        [self deleteObjects:objects realmName:realmName];
+    }
+}
+
+/**
+ 通过where字符串数据指定数据
+ @param where where字符串
+ @param realmName 数据库名称(默认数据库则传nil)
+ */
++(void)deleteObjectsWithWhere:(NSString *)where realmName:(NSString *)realmName {
+    RLMResults *objects = [self getObjetctsWithWhere:where realm:realmName sortedDescriptors:nil];
+    NSLog(@"objectCount:%ld",objects.count);
+    if (objects&&objects.count>0) {
+        [self deleteObjects:objects realmName:realmName];
+    }
+}
+
+
+/**
+ 删除数据库中的所有数据
+ @param realmName 数据库名称(默认数据库则传nil)
+ */
++(void)deleteAllObjectsWithRealmName:(NSString *)realmName {
+    RLMRealm *realm=nil;
+    if (realmName) {
+        realm=[self getCustomRealmWithName:realmName];
+    }
+    else {
+        realm=[self getDefaultRealm];
+    }
+    if (realm) {
+        [realm transactionWithBlock:^{
+            [realm deleteAllObjects];
+            [realm commitWriteTransaction];
+        }];
+    }
+}
 @end

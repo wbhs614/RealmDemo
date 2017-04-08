@@ -22,37 +22,70 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dgJ-9j-G6k">
-                                <rect key="frame" x="166" y="318.5" width="43" height="30"/>
-                                <color key="backgroundColor" red="0.1960784314" green="0.1960784314" blue="0.1960784314" alpha="0.46000000000000002" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Peson"/>
+                                <rect key="frame" x="156.5" y="318.5" width="62" height="30"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="查询数据"/>
                                 <connections>
                                     <action selector="getPersons:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kb4-38-ix5"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="19V-uZ-hLk">
-                                <rect key="frame" x="166" y="370" width="43" height="30"/>
-                                <color key="backgroundColor" red="0.1960784314" green="0.1960784314" blue="0.1960784314" alpha="0.46000000000000002" colorSpace="calibratedRGB"/>
+                                <rect key="frame" x="156.5" y="370" width="62" height="30"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="添加"/>
                                 <connections>
                                     <action selector="addOjbect:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yzP-3v-Jaw"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qYm-rB-ap9">
-                                <rect key="frame" x="166" y="420" width="43" height="30"/>
-                                <color key="backgroundColor" red="0.1960784314" green="0.70588235290000001" blue="0.3921568627" alpha="0.9851177377" colorSpace="calibratedRGB"/>
+                                <rect key="frame" x="156.5" y="420" width="62" height="30"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="更新"/>
                                 <connections>
                                     <action selector="updateObject:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7o6-Va-Mvo"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IMD-zP-YEO">
+                                <rect key="frame" x="156.5" y="474" width="62" height="30"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="删除指定"/>
+                                <connections>
+                                    <action selector="OnDeleteObject:" destination="BYZ-38-t0r" eventType="touchUpInside" id="g0X-0y-zbR"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XD4-UB-PXL">
+                                <rect key="frame" x="156.5" y="531" width="62" height="30"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="删除所有"/>
+                                <connections>
+                                    <action selector="deleteAllDatas:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ksy-ye-OiH"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jKs-XY-YJz">
+                                <rect key="frame" x="156" y="264" width="62" height="30"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="添加多条"/>
+                                <connections>
+                                    <action selector="addAllDatas:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xoH-SJ-rre"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="IMD-zP-YEO" firstAttribute="leading" secondItem="qYm-rB-ap9" secondAttribute="leading" id="2uG-VL-fGt"/>
+                            <constraint firstItem="XD4-UB-PXL" firstAttribute="trailing" secondItem="IMD-zP-YEO" secondAttribute="trailing" id="9He-5V-Qno"/>
+                            <constraint firstItem="XD4-UB-PXL" firstAttribute="leading" secondItem="IMD-zP-YEO" secondAttribute="leading" id="Jdd-BV-q3D"/>
+                            <constraint firstItem="XD4-UB-PXL" firstAttribute="top" secondItem="IMD-zP-YEO" secondAttribute="bottom" constant="27" id="KLq-RG-gix"/>
                             <constraint firstItem="19V-uZ-hLk" firstAttribute="trailing" secondItem="dgJ-9j-G6k" secondAttribute="trailing" id="LCj-bF-IPU"/>
                             <constraint firstItem="dgJ-9j-G6k" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Lvv-cD-Jyy"/>
+                            <constraint firstItem="IMD-zP-YEO" firstAttribute="trailing" secondItem="qYm-rB-ap9" secondAttribute="trailing" id="OHy-6Y-lxM"/>
                             <constraint firstItem="19V-uZ-hLk" firstAttribute="leading" secondItem="dgJ-9j-G6k" secondAttribute="leading" id="Wr4-zq-LFz"/>
+                            <constraint firstItem="dgJ-9j-G6k" firstAttribute="leading" secondItem="jKs-XY-YJz" secondAttribute="leading" id="cih-zK-SWh"/>
+                            <constraint firstItem="dgJ-9j-G6k" firstAttribute="top" secondItem="jKs-XY-YJz" secondAttribute="bottom" constant="23" id="dgN-FR-Lvv"/>
+                            <constraint firstItem="IMD-zP-YEO" firstAttribute="top" secondItem="qYm-rB-ap9" secondAttribute="bottom" constant="24" id="gRO-dP-FB9"/>
                             <constraint firstItem="qYm-rB-ap9" firstAttribute="leading" secondItem="19V-uZ-hLk" secondAttribute="leading" id="hzr-jl-XHE"/>
                             <constraint firstItem="qYm-rB-ap9" firstAttribute="top" secondItem="19V-uZ-hLk" secondAttribute="bottom" constant="20" id="iIp-ab-GuV"/>
+                            <constraint firstItem="dgJ-9j-G6k" firstAttribute="trailing" secondItem="jKs-XY-YJz" secondAttribute="trailing" id="k3b-cf-gme"/>
                             <constraint firstItem="qYm-rB-ap9" firstAttribute="trailing" secondItem="19V-uZ-hLk" secondAttribute="trailing" id="p36-Xa-ymw"/>
                             <constraint firstItem="19V-uZ-hLk" firstAttribute="top" secondItem="dgJ-9j-G6k" secondAttribute="bottom" constant="21.5" id="vLZ-zT-Rbv"/>
                             <constraint firstItem="dgJ-9j-G6k" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="xhz-94-uqI"/>
@@ -61,7 +94,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-268" y="43"/>
+            <point key="canvasLocation" x="-518" y="40"/>
         </scene>
     </scenes>
 </document>

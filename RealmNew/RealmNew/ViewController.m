@@ -5,8 +5,8 @@
 //  Created by kkmac on 2017/4/7.
 //  Copyright © 2017年 kkmac. All rights reserved.
 //
-//参考文档地址：http://git.devzeng.com/blog/simple-usage-of-realm-in-ios.html
-
+//技术参考文档地址：http://git.devzeng.com/blog/simple-usage-of-realm-in-ios.html
+//理论知识参考文档：http://www.cocoachina.com/ios/20161103/17935.html
 #import "ViewController.h"
 #import "Dog.h"
 #import "Person.h"
@@ -22,7 +22,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self loadData];
 }
 
 -(NSInteger)getNowTimestamp{
@@ -40,6 +39,10 @@
         per.primaryKey=[[[NSUUID UUID] UUIDString] stringByReplacingOccurrencesOfString:@"-" withString:@""];
         [Person addSingleObject:per realmName:@"wangbiao"];
     }
+}
+
+- (IBAction)addAllDatas:(id)sender {
+    [self loadData];
 }
 
 - (IBAction)getPersons:(id)sender {
@@ -82,6 +85,7 @@
     [Person addSingleObject:per realmName:@"wangbiao"];
 }
 
+//更新数据
 - (IBAction)updateObject:(id)sender {
     RLMResults *results=[Person getObjetctsWithWhere:@"name='zhaohua'" realm:@"wangbiao" sortedDescriptors:nil];
     if (results&&results.count>0) {
@@ -91,6 +95,19 @@
         }];
     }
   
+}
+
+//删除数据
+- (IBAction)OnDeleteObject:(id)sender {
+    //删除方法一
+    //[Person deleteObjectsWithWhere:@"name='qianliu'" realmName:@"wangbiao"];
+    //删除方法二
+    NSPredicate *predicate=[NSPredicate predicateWithFormat:@"age<14"];
+    [Person deleteObjectsWithPredicate:predicate realmName:@"wangbiao"];
+}
+
+- (IBAction)deleteAllDatas:(id)sender {
+    [Person deleteAllObjectsWithRealmName:@"wangbiao"];
 }
 
 - (void)didReceiveMemoryWarning {

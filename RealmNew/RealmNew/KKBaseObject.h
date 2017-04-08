@@ -87,9 +87,29 @@
 
 
 /**
- 更行或者添加数据
+ 添加数据（不含更新）
  @param object 增加或者更新的对象
  @param realmName 数据库名字（默认数据库则传nil）
  */
 +(void)addSingleObject:(RLMObject *)object realmName:(NSString *)realmName;
+
+/**
+ 通过谓词删除指定数据
+ @param predicate 谓词
+ @param realmName 数据库名称(默认数据库则传nil)
+ */
++(void)deleteObjectsWithPredicate:(NSPredicate *)predicate realmName:(NSString *)realmName;
+
+/**
+ 通过where字符串数据指定数据
+ @param where where字符串
+ @param realmName 数据库名称(默认数据库则传nil)
+ */
++(void)deleteObjectsWithWhere:(NSString *)where realmName:(NSString *)realmName;
+
+/**
+ 删除数据库中的所有数据
+ @param realmName 数据库名称(默认数据库则传nil)
+ */
++(void)deleteAllObjectsWithRealmName:(NSString *)realmName;
 @end
