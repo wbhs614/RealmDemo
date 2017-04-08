@@ -11,5 +11,5 @@
 @property (nonatomic,strong)NSString *name;
 @property (nonatomic,strong)NSString *sex;
 @property (nonatomic,assign)NSInteger age;
-@property (nonatomic,assign)NSString *timeStamp;
+@property (nonatomic,assign)NSString *primaryKey;
 @end

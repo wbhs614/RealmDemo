@@ -22,7 +22,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    //[self loadData];
+    [self loadData];
 }
 
 -(NSInteger)getNowTimestamp{
@@ -37,7 +37,7 @@
         per.name=@"lily";
         per.sex=@"F";
         per.age=12+i;
-        per.timeStamp=[NSString stringWithFormat:@"%ld",[self getNowTimestamp]+i];
+        per.primaryKey=[[[NSUUID UUID] UUIDString] stringByReplacingOccurrencesOfString:@"-" withString:@""];
         [Person addSingleObject:per realmName:@"wangbiao"];
     }
 }
@@ -60,7 +60,7 @@
     //获取全部数据的方法
     _personArray=[Person getAllObjectsWithRealmName:@"wangbiao" sortedDescriptors:nil];
     for (Person *per in _personArray) {
-        NSLog(@"personCount:%lu,name:%@,sex:%@,age:%ld,time:%lld",(unsigned long)_personArray.count,per.name,per.sex,per.age,per.timeStamp.longLongValue);
+        NSLog(@"personCount:%lu,name:%@,sex:%@,age:%ld,primaryKey:%@",(unsigned long)_personArray.count,per.name,per.sex,per.age,per.primaryKey);
         
     }
 }
@@ -77,7 +77,7 @@
    //添加数据的方法二
     per.name=@"qianliu";
     per.age=56;
-    per.timeStamp=[NSString stringWithFormat:@"%ld",[self getNowTimestamp]];
+    per.primaryKey=[[[NSUUID UUID] UUIDString] stringByReplacingOccurrencesOfString:@"-" withString:@""];
     per.sex=@"F";
     [Person addSingleObject:per realmName:@"wangbiao"];
 }

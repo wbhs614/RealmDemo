@@ -10,6 +10,6 @@
 
 @implementation Person
 +(NSString *)primaryKey {
-    return @"timeStamp";
+    return @"primaryKey";
 }
 @end
